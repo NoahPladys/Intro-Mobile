@@ -1,0 +1,16 @@
+<ion-item *ngIf="product" [routerLink]="'/product/' + product.id" [detail]="false">
+  <div slot="start" [class]="'dot'"></div>
+  <ion-label class="ion-text-wrap">
+    <h2>
+      {{ product.name }}
+      <span class="date">
+        <ion-note>€ {{ product.price }}</ion-note>
+        <ion-icon name="chevron-forward" size="small" *ngIf="isIos()"></ion-icon>
+      </span>
+    </h2>
+    <h3>{{ product.brand }}</h3>
+    <p>
+      {{ product.description }}
+    </p>
+  </ion-label>
+</ion-item>
