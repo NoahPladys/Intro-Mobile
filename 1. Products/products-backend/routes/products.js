@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 
-fs.readFile('./data/products.json', function read(err, data) {     
-    
+fs.readFile('./data/products.json', function read(err, data) {
+
     var products = JSON.parse(data).products;
 
     function saveJSON() {
@@ -16,17 +16,17 @@ fs.readFile('./data/products.json', function read(err, data) {
     }
 
     /* GET all products */
-    router.get('/', function(req, res) {
+    router.get('/', function (req, res) {
         res.json(products);
     });
 
     /* GET one product */
-    router.get('/:id', function(req, res) {
-        let foundProducts = products.filter(function(p) {
+    router.get('/:id', function (req, res) {
+        let foundProducts = products.filter(function (p) {
             return p.id == req.params.id;
         });
 
-        if(foundProducts.length == 1) {
+        if (foundProducts.length == 1) {
             res.json(foundProducts[0]);
         }
         else {
@@ -35,11 +35,11 @@ fs.readFile('./data/products.json', function read(err, data) {
     });
 
     /* DELETE one product */
-    router.delete('/delete/:id', function(req, res) {
-        let keepProducts = products.filter(function(p) {
+    router.delete('/delete/:id', function (req, res) {
+        let keepProducts = products.filter(function (p) {
             return p.id != req.params.id;
         });
-        
+
         products = keepProducts;
 
         saveJSON();
@@ -47,7 +47,7 @@ fs.readFile('./data/products.json', function read(err, data) {
     });
 
     /* ADD one product */
-    router.post('/add', function(req, res) {
+    router.post('/add', function (req, res) {
 
         products.push(req.body);
 
