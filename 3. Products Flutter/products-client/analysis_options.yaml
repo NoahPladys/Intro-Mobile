@@ -1,0 +1,73 @@
+include: package:effective_dart/analysis_options.yaml
+
+analyzer:
+  exclude: 
+    - build/**
+    - lib/**.g.dart  
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+
+  errors:
+    missing_return: error
+    dead_code: error
+    always_declare_return_types: error
+    avoid_web_libraries_in_flutter: error
+    missing_required_param: error
+    file_names: error
+    camel_case_types: error
+    empty_statements: error
+    iterable_contains_unrelated_type: error
+    list_remove_unrelated_type: error
+    no_duplicate_case_values: error
+    unrelated_type_equality_checks: error
+
+    #This is added as an error to make viewing code on the web easier
+    lines_longer_than_80_chars: error
+    prefer_single_quotes: error
+
+linter:
+  rules:
+    always_declare_return_types: true
+    always_require_non_null_named_parameters: true
+    annotate_overrides: true
+    avoid_annotating_with_dynamic: true
+    avoid_bool_literals_in_conditional_expressions: true
+    avoid_empty_else: true
+    avoid_unnecessary_containers: true
+    avoid_web_libraries_in_flutter: true
+    await_only_futures: true
+    camel_case_types: true
+    cancel_subscriptions: true
+    close_sinks: true
+    empty_statements: true
+    file_names: true
+    hash_and_equals: true
+    iterable_contains_unrelated_type: true
+    lines_longer_than_80_chars: true
+    list_remove_unrelated_type: true
+    no_duplicate_case_values: true
+    no_logic_in_create_state: true
+    omit_local_variable_types: true
+    only_throw_errors: true
+    prefer_const_constructors: true
+    prefer_const_constructors_in_immutables: true
+    prefer_const_declarations: true
+    prefer_final_fields: true
+    prefer_final_in_for_each: true
+    prefer_final_locals: true
+    prefer_if_null_operators: true
+    prefer_null_aware_operators: true
+    prefer_relative_imports: true
+    prefer_single_quotes: true
+    prefer_void_to_null: true
+    sized_box_for_whitespace: true
+    unnecessary_await_in_return: true
+    unnecessary_const: true
+    unnecessary_new: true
+    unnecessary_statements: true
+    unnecessary_this: true
+    unrelated_type_equality_checks: true
+    use_key_in_widget_constructors: true
+    public_member_api_docs: false
+    avoid_types_on_closure_parameters: false

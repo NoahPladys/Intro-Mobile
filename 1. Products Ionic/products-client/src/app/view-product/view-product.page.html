@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-button color="danger" fill="clear" size="large" slot="end" (click)="removeProduct()" [routerLink]="'/'">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="product">
+  <ion-item>
+    <ion-label class="ion-text-wrap">
+      <h2>
+        {{ product.name }}
+        <span class="date">
+          <ion-note>€ {{ product.price }}</ion-note>
+        </span>
+      </h2>
+    </ion-label>
+  </ion-item>
+
+  <div class="ion-padding">
+    <h1>{{ product.name }}</h1>
+    <h5 class="ion-no-margin">by {{ product.brand }}</h5>
+    <hr>
+    <p>
+      {{ product.description }}
+    </p>
+  </div>
+</ion-content>
