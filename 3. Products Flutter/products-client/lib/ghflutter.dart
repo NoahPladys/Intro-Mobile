@@ -28,6 +28,7 @@
 
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:ghflutter/product_page.dart';
 import 'package:http/http.dart' as http;
 import 'product.dart';
 import 'strings.dart' as strings;
@@ -68,22 +69,29 @@ class _GHFlutterState extends State<GHFlutter> {
   }
 
   Widget _buildRow(int i) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: ListTile(
-        title: Text(
-          '${_products[i].name} ',
-          style: _biggerFont
+    return InkWell(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListTile(
+          title: Text(
+            '${_products[i].name} ',
+            style: _biggerFont
+            ),
+          subtitle: Text(
+            '${_products[i].id}',
+            style: _biggerFont
           ),
-        subtitle: Text(
-          '${_products[i].id}',
-          style: _biggerFont
-        ),
-        trailing: Text(
-          '${_products[i].price}${strings.currencySymbol} ',
-          style: _biggerFont
+          trailing: Text(
+            '${_products[i].price}${strings.currencySymbol} ',
+            style: _biggerFont
+          ),
         ),
       ),
+      onTap: () => {
+        Navigator.of(context).push<MaterialPageRoute>(MaterialPageRoute(
+          builder: (context) => ProductPage(product: _products[i])
+        ))
+      }
     );
   }
 
@@ -99,7 +107,7 @@ class _GHFlutterState extends State<GHFlutter> {
             return _buildRow(position);
           },
           separatorBuilder: (context, index) {
-            return const Divider();
+            return const Divider(height: 1);
           }),
     );
   }
