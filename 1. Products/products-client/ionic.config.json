@@ -1,7 +1,0 @@
-{
-  "name": "products-client",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
